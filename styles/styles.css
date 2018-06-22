@@ -164,7 +164,7 @@ button:focus {
 
 /* slider response */
 
-/* slider  ---o--- 
+/* slider  ---o---
     --- track
      o  thumb
 */
@@ -249,7 +249,7 @@ input[type="range"]:focus::-moz-range-thumb {
     text-align: left;
 }
 
-.post-test-templ form input, 
+.post-test-templ form input,
 .post-test-templ form select {
     width: 200px;
     max-width: 200px;
@@ -309,6 +309,12 @@ input[type="range"]:focus::-moz-range-thumb {
     overflow-x: scroll;
 }
 
+.firstmult label {
+  float: left;
+  padding: 0 1em;
+  text-align: center;}
+
+
 #debugresults {
     border-collapse: collapse;
     font-family: "Lato", "Noto Sans", sans-serif;
@@ -322,7 +328,7 @@ input[type="range"]:focus::-moz-range-thumb {
     padding: 8px;
 }
 
-#debugresults tr:nth-child(even){ 
+#debugresults tr:nth-child(even){
     background-color: #f2f2f2;
 }
 

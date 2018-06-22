@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		
+
 		<title>browser-based experiments</title>
 
 		<!-- fonts from Google fonts -->
@@ -27,7 +27,7 @@
 		<script src="scripts/helpers.js"></script>
 		<script src="scripts/utils.js"></script>
 		<script src="scripts/submit_to_server.js"></script>
-		
+
 		<!-- local trial_info files -->
 		<script src="trial_info/main_trials.js"></script>
 		<script src="trial_info/practice_trials.js"></script>
@@ -76,6 +76,9 @@
 			{{# title }}
 			<h1>{{ title }}</h1>
 			{{/ title }}
+			{{# text1 }}
+			<h2>{{ text1 }}</h2>
+			{{/ text1 }}
 			{{# text }}
 			<section class="text-container">
 				<p class="text">{{ text }}</p>
@@ -104,12 +107,75 @@
 		  </p>
 
 			<p class="answer-container">
-				<label for="yes" class="button-answer">{{option1}}</label>
-				<input type="radio" name="answer" id="yes" value={{option1}} />
-				<input type="radio" name="answer" id="no" value={{option2}} />
-				<label for="no" class="button-answer">{{option2}}</label>
+				<input type="radio" name="answer" id="1" value={{option1}} />
+				<input type="radio" name="answer" id="2" value={{option2}} />
+				<input type="radio" name="answer" id="3" value={{option3}} />
+				<input type="radio" name="answer" id="4" value={{option4}} />
+				<input type="radio" name="answer" id="5" value={{option5}} />
+				<input type="radio" name="answer" id="6" value={{option6}} />
+				<input type="radio" name="answer" id="7" value={{option7}} />
+				<input type="radio" name="answer" id="8" value={{option8}} />
+				<input type="radio" name="answer" id="9" value={{option9}} />
+				<input type="radio" name="answer" id="10" value={{option10}} />
+				<input type="radio" name="answer" id="11" value={{option11}} />
+				<input type="radio" name="answer" id="12" value={{option12}} />
+				<label for="1" class="button-answer">{{option1}}</label>
+				<label for="2" class="button-answer">{{option2}}</label>
+				<label for="3" class="button-answer">{{option3}}</label>
+				<label for="4" class="button-answer">{{option4}}</label>
+				<label for="5" class="button-answer">{{option5}}</label>
+				<label for="6" class="button-answer">{{option6}}</label>
+				<label for="7" class="button-answer">{{option7}}</label>
+				<label for="8" class="button-answer">{{option8}}</label>
+				<label for="9" class="button-answer">{{option9}}</label>
+				<label for="10" class="button-answer">{{option10}}</label>
+				<label for="11" class="button-answer">{{option11}}</label>
+				<label for="12" class="button-answer">{{option12}}</label>
 			</p>
 		</div>
+		</script>
+
+		<!-- practiceFeedback view -->
+		<script id="practiceFeedback-view" type="x-tmpl-mustache">
+		<div class="view">
+			{{# title }}
+			<h1>{{ title }}</h1>
+			{{/ title }}
+
+			{{# workforce }}
+			<section class="text-container">
+				<p class="text">You chose work force: {{{ workforce }}} Workers</p>
+			</section>
+			{{/ workforce }}
+
+			{{# sugar }}
+			<section class="text-container">
+				<p class="text">Your sugar output was: {{{ sugar }}} kg</p>
+			</section>
+			{{/ sugar }}
+
+			{{# success }}
+			<section class="text-container">
+				<p class="text">Success, you reached your desired sugar output goal!! </p>
+			</section>
+			{{/ success }}
+
+			{{# too_low }}
+			<section class="text-container">
+				<p class="text">Your sugar output is too low!! </p>
+			</section>
+			{{/ too_low }}
+
+			{{# too_high }}
+			<section class="text-container">
+				<p class="text">Your sugar output is too high!! </p>
+			</section>
+			{{/ too_high }}
+
+			{{# button }}
+			<button id="next">{{ button }}</button>
+			{{/ button }}
+		</view>
 		</script>
 
 		<!-- Begin Experiment view -->
@@ -139,12 +205,227 @@
 		</p>
 
 		<p class="answer-container">
-			<label for="yes" class="button-answer">{{ option1 }}</label>
-			<input type="radio" name="answer" id="yes" value={{ option1 }} />
-			<input type="radio" name="answer" id="no" value={{ option2 }} />
-			<label for="no" class="button-answer">{{option2}}</label>
+				<input type="radio" name="answer" id="1" value={{option1}} />
+				<input type="radio" name="answer" id="2" value={{option2}} />
+				<input type="radio" name="answer" id="3" value={{option3}} />
+				<input type="radio" name="answer" id="4" value={{option4}} />
+				<input type="radio" name="answer" id="5" value={{option5}} />
+				<input type="radio" name="answer" id="6" value={{option6}} />
+				<input type="radio" name="answer" id="7" value={{option7}} />
+				<input type="radio" name="answer" id="8" value={{option8}} />
+				<input type="radio" name="answer" id="9" value={{option9}} />
+				<input type="radio" name="answer" id="10" value={{option10}} />
+				<input type="radio" name="answer" id="11" value={{option11}} />
+				<input type="radio" name="answer" id="12" value={{option12}} />
+				<label for="1" class="button-answer">{{option1}}</label>
+				<label for="2" class="button-answer">{{option2}}</label>
+				<label for="3" class="button-answer">{{option3}}</label>
+				<label for="4" class="button-answer">{{option4}}</label>
+				<label for="5" class="button-answer">{{option5}}</label>
+				<label for="6" class="button-answer">{{option6}}</label>
+				<label for="7" class="button-answer">{{option7}}</label>
+				<label for="8" class="button-answer">{{option8}}</label>
+				<label for="9" class="button-answer">{{option9}}</label>
+				<label for="10" class="button-answer">{{option10}}</label>
+				<label for="11" class="button-answer">{{option11}}</label>
+				<label for="12" class="button-answer">{{option12}}</label>
 		</p>
 
+		</div>
+		</script>
+
+		<!-- Main_Trial_Feedback view -->
+		<script id="Main_Trial_Feedback-view" type="x-tmpl-mustache">
+		<div class="view">
+			{{# title }}
+			<h1>{{ title }}</h1>
+			{{/ title }}
+
+			{{# workforce }}
+			<section class="text-container">
+				<p class="text">You chose work force: {{{ workforce }}} Workers</p>
+			</section>
+			{{/ workforce }}
+
+			{{# sugar }}
+			<section class="text-container">
+				<p class="text">Your sugar output was: {{{ sugar }}} kg</p>
+			</section>
+			{{/ sugar }}
+
+			{{# success }}
+			<section class="text-container">
+				<p class="text">This was a success!! </p>
+			</section>
+			{{/ success }}
+
+			{{# too_low }}
+			<section class="text-container">
+				<p class="text">Your sugar output is too low!! </p>
+			</section>
+			{{/ too_low }}
+
+			{{# too_high }}
+			<section class="text-container">
+				<p class="text">Your sugar output is too high!! </p>
+			</section>
+			{{/ too_high }}
+
+
+			{{# button }}
+			<button id="next">{{ button }}</button>
+			{{/ button }}
+		</view>
+		</script>
+
+
+
+
+		<!-- Instructions view -->
+		<script id="instructions-view" type="x-tmpl-mustache">
+		<div class="view">
+			{{# title }}
+			<h1>{{ title }}</h1>
+			{{/ title }}
+			{{# text1 }}
+			<h2>{{ text1 }}</h2>
+			{{/ text1 }}
+			{{# text }}
+			<section class="text-container">
+				<p class="text">{{ text }}</p>
+			</section>
+			{{/ text }}
+			{{# button }}
+			<button id="next">{{ button }}</button>
+			{{/ button }}
+		</view>
+		</script>
+
+
+		</script><!-- questionaire -->
+		<script id="questionaire" type="x-tmpl-mustache">
+		<div class="questionaire">
+			{{# title }}
+			<h1>{{ title }}</h1>
+			{{/ title }}
+			{{# text }}
+			<section class="text-container">
+				<p class="text">{{ text }}</p>
+			</section>
+			{{/ text }}
+			<form>
+				<br>
+				<p>
+						<label for="Firstmultiplechoice">Question 1: you have  a following starting state the initial output is 6000 tons and the initial work force is 600. Now you decrease the work force to 900. Please predict the resulting output from a given set of six alternatives. </label><br>
+					<div class="firstmult">
+						<br>
+						<label for="9000 tons">9000 tons
+							<input type="radio" name="Firstmultiplechoice" id="9000 tons" value="9000 tons">
+						</label>
+						<label for="1000 tons">1000 tons
+						<input type="radio" name="Firstmultiplechoice" id="1000 tons" value="1000 tons"></label>
+						<label for="between 3000 - 7000 tons ">between 3000 - 7000 tons
+						<input type="radio" name="Firstmultiplechoice" id="between 3000 - 7000 tons" value="between 3000 - 7000 tons"></label>
+						<label for="< 2000 tons">< 2000 tons
+						<input type="radio" name="Firstmultiplechoice" id="< 2000 tons" value="< 2000 tons"></label>
+						<label for="> 10000 tons">> 10000 tons
+						<input type="radio" name="Firstmultiplechoice" id="> 10000 tons" value="> 10000 tons"></label>
+						<label for="all options are equally likely">all options are equally likely
+						<input type="radio" name="Firstmultiplechoice" id="all options are equally likely" value="all options are equally likely"></label>
+					</div>
+				</p>
+				<br><br><br>
+				<p>
+					<label for="Firstmultiplechoice">Question 2: you have  a following starting state the initial output is 6000 tons and the initial work force is 600. Now you decrease the work force to 200. Please predict the resulting output from a given set of six alternatives. </label><br>
+			<div class="firstmult">
+				<br>
+				<label for="9000 tons">9000 tons
+					<input type="radio" name="Firstmultiplechoice" id="9000 tons" value="9000 tons">
+				</label>
+				<label for="1000 tons">1000 tons
+				<input type="radio" name="Firstmultiplechoice" id="1000 tons" value="1000 tons"></label>
+				<label for="between 3000 - 7000 tons ">between 3000 - 7000 tons
+				<input type="radio" name="Firstmultiplechoice" id="between 3000 - 7000 tons" value="between 3000 - 7000 tons"></label>
+				<label for="< 2000 tons">< 2000 tons
+				<input type="radio" name="Firstmultiplechoice" id="< 2000 tons" value="< 2000 tons"></label>
+				<label for="> 10000 tons">> 10000 tons
+				<input type="radio" name="Firstmultiplechoice" id="> 10000 tons" value="> 10000 tons"></label>
+				<label for="all options are equally likely">all options are equally likely
+				<input type="radio" name="Firstmultiplechoice" id="all options are equally likely" value="all options are equally likely"></label>
+				</p>
+				<br><br><br>
+				<p>
+				<label for="Question3">Question 3: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
+				<table style="width:100%">
+	<br><br>
+  <tr>
+    <td>Workforce: 800</td>
+		<td>Workforce: 500</td>
+		<td>Workforce: 1200</td>
+    <td>Workforce: 700</td>
+  </tr>
+  <tr>
+    <td>Sugaroutput: 11000</td>
+    <td>Sugaroutput: 6000</td>
+		<td>Sugaroutput: 7000</td>
+		<td><input type ="text" placeholder="enter a value"></td>
+  </tr>
+</table>
+<br><br>
+
+<label for="Question3">Question 4: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
+<table style="width:100%">
+<br>
+<tr>
+<td>Workforce: 800</td>
+<td>Workforce: 500</td>
+<td>Workforce: 1200</td>
+<td>Workforce: 700</td>
+</tr>
+<tr>
+<td>Sugaroutput: 11000</td>
+<td>Sugaroutput: 6000</td>
+<td>Sugaroutput: 7000</td>
+<td><input type ="text" placeholder="enter a value"></td>
+</tr>
+</table>
+<br><br>
+
+<label for="Question3">Question 5: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
+<table style="width:100%">
+<br>
+<tr>
+<td>Workforce: 800</td>
+<td>Workforce: 500</td>
+<td>Workforce: 1200</td>
+<td>Workforce: 700</td>
+</tr>
+<tr>
+<td>Sugaroutput: 11000</td>
+<td>Sugaroutput: 6000</td>
+<td>Sugaroutput: 7000</td>
+<td><input type ="text" placeholder="enter a value"></td>
+</tr>
+</table>
+<br><br>
+
+				</p>
+
+
+
+
+				<p class="comment-sect"> Question 6: Describe how did you go about attempting to reach & maintain your target values?
+					<label for="comments"></label>
+					<textarea name="comments" id="comments"
+					rows="5" cols="80"></textarea>
+				</p>
+				{{# buttonText }}
+				<button id="next">{{ buttonText }}</button>
+				{{/ buttonText }}
+				{{^ buttonText }}
+				<button id="next">Next</button>
+				{{/ buttonText }}
+			</form>
 		</div>
 		</script>
 
