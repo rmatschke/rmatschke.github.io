@@ -3,7 +3,7 @@ var intro = {
     // introduction title
     "title": "Welcome to the Sugar Factory Experiment!",
     // introduction text
-    "text": "Thank you for participating in our study! Make sure you are in a non distracting environment, please read the instructions carefully!",
+    "text": "Thank you for participating in our study! Please make sure that you are in a non-distracting environment,  read the instructions carefully and answer every question.Your participation in this experiment is voluntary and you may refuse to take part or exit at any point without penalty. By continuing to the next page, you are giving consent to participating in the experiment and your data being subject to analysis.",
     // introduction's slide proceeding button text
     "buttonText": "Let the adventure begin",
     // render function renders the view
@@ -33,7 +33,7 @@ var instructions = {
     //part 1 header//
     "text1": "Part 1",
     // instruction's text
-    "text": "Imagine, you are the director of a new factory producing sugar. Your job as the director of this new sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
+    "text": "Imagine that you are the director of a factory producing sugar and your job is to decide each week how many workers you want to work in the factory. Your goal is to reach a certain output level of sugar and after every week you will be told whether you reached your goal, the sugar output was too low or too high. Good luck!",
     // instuction's slide proceeding button text
     "buttonText": "Go to practice trial",
     render: function() {
@@ -223,7 +223,7 @@ var main = {
 
 var mainFeedback = {
     name: 'mainFeedback',
-    "title": "mainFeedback",
+    "title": "Feedback",
 	"buttonText": "Next Trial",
     // render function renders the view
     render: function (CT) {
@@ -255,9 +255,9 @@ var instructionspart2 = {
     //part 1 header//
     "text1": "Part 2",
     // instruction's text
-    "text": "Now we will ask you some general questions about the sugar factory task, take your time and read carefully.",
+    "text": "Now we will ask you some general questions regarding the sugar factory task, please read each question carefully and take your time to answer in a thoughtful manner.",
     // instuction's slide proceeding button text
-    "buttonText": "Go to practice trial",
+    "buttonText": "Continue to questions",
     render: function() {
 
         viewTemplate = $("#instructions-view").html();
@@ -281,8 +281,8 @@ var instructionspart2 = {
 
 var questionaire = {
     name: 'questionaire',
-    "title": "Questionaire",
-    "text": "Answer the following questions.",
+    "title": "Questionnaire",
+    "text": "Please answer the following questions.",
     "buttonText": "Continue",
     // render function renders the view
     render : function() {
@@ -317,8 +317,8 @@ var questionaire = {
 var postTest = {
     name: 'postTest',
     "title": "Additional Info",
-    "text": "Answering the following questions is optional, but will help us understand your answers.",
-    "buttonText": "Continue",
+    "text": "Please answer the following questions. <br> Your data will be stored and password protected electronically, and no one will be able to identify you or your answers. Therefore please do not provide any identifying information such as student ID number, email address, etc. If you would like further information about this study please state this in the further comments section by providing an email address, however please note that your responses will no longer be anonymous.",
+    "buttonText": "End experiment",
     // render function renders the view
     render : function() {
 
