@@ -4,19 +4,37 @@ exp.customize = function() {
     // record current date and time in global_data
     this.global_data.startDate = Date();
     this.global_data.startTime = Date.now();
-    
+
     // specify view order
-    this.views_seq = [intro, 
+    this.condition = _.sample([true, false]) ? "double-block" :"single-block"
+
+    if (this.condition === "single-block") {
+      this.views_seq = [intro,
                      instructions,
                      loop([practice,
-					       practiceFeedback],1),
+					           practiceFeedback],4),
                      beginMainExp,
-                     loop([main,
-                     mainFeedback], 1),
+                     loop([main, mainFeedback], 10),
                      instructionspart2,
                      questionaire,
                      postTest,
                      thanks];
+    } else {
+      this.views_seq = [intro,
+                     instructions,
+                     loop([practice,
+					           practiceFeedback],4),
+                     beginMainExp,
+                     loop([main,
+                     mainFeedback], 10),
+                     beginMainExp,
+                     loop([main,
+                     mainFeedback], 10),
+                     instructionspart2,
+                     questionaire,
+                     postTest,
+                     thanks];
+    }
 
     // prepare information about trials (procedure)
     // randomize main trial order, but keep practice trial order fixed
