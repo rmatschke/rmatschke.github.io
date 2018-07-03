@@ -1,4 +1,5 @@
 var intro = {
+<<<<<<< HEAD
   name: 'intro',
   // introduction title
   "title": "Welcome to the Sugar Factory Experiment!",
@@ -53,6 +54,62 @@ var instructions = {
 
   },
   trials: 1
+=======
+    name: 'intro',
+    // introduction title
+    "title": "Welcome to the Sugar Factory Experiment!",
+    // introduction text
+    "text": "Thank you for participating in our study! Please make sure that you are in a non-distracting environment,  read the instructions carefully and answer every question.Your participation in this experiment is voluntary and you may refuse to take part or exit at any point without penalty. By continuing to the next page, you are giving consent to participating in the experiment and your data being subject to analysis.",
+    // introduction's slide proceeding button text
+    "buttonText": "Let the adventure begin",
+    // render function renders the view
+    render: function() {
+        
+        viewTemplate = $('#intro-view').html();
+        $('#main').html(Mustache.render(viewTemplate, {
+            title: this.title,
+            text: this.text,
+            button: this.buttonText
+        }));
+
+        // moves to the next view
+        $('#next').on('click', function(e) {
+            exp.findNextView();
+        });
+
+    },
+    // for how many trials should this view be repeated?
+    trials: 1
+};
+
+var instructions = {
+    name: 'instructions',
+    // instruction's title
+    "title": "Instructions",
+    //part 1 header//
+    "text1": "Part 1",
+    // instruction's text
+    "text": "Imagine that you are the director of a factory producing sugar and your job is to decide each week how many workers you want to work in the factory. Your goal is to reach a certain output level of sugar and after every week you will be told whether you reached your goal, the sugar output was too low or too high. Good luck!",
+    // instuction's slide proceeding button text
+    "buttonText": "Go to practice trial",
+    render: function() {
+
+        viewTemplate = $("#instructions-view").html();
+        $('#main').html(Mustache.render(viewTemplate, {
+            title: this.title,
+            text1: this.text1,
+            text: this.text,
+            button: this.buttonText
+        }));
+
+        // moves to the next view
+        $('#next').on('click', function(e) {
+            exp.findNextView();
+        }); 
+
+    },
+    trials: 1
+>>>>>>> 85af82b803b05eaee7c6ea3186aeca0f9eea6689
 };
 
 var practice = {
@@ -234,6 +291,7 @@ var randomValue = function() {
 }
 
 var mainFeedback = {
+<<<<<<< HEAD
   name: 'mainFeedback',
   "title": "Feedback",
   "buttonText": "Next Trial",
@@ -287,11 +345,67 @@ var instructionspart2 = {
 
   },
   trials: 1
+=======
+    name: 'mainFeedback',
+    "title": "Feedback",
+	"buttonText": "Next Trial",
+    // render function renders the view
+    render: function (CT) {
+
+        viewTemplate = $("#practiceFeedback-view").html();
+        $('#main').html(Mustache.render(viewTemplate, {
+        	title: this.title,
+			workforce: exp.trial_data[exp.trial_data.length-1].workforce,
+			sugar: exp.trial_data[exp.trial_data.length-1].sugar,
+			success: exp.trial_data[exp.trial_data.length-1].success,
+			too_high: exp.trial_data[exp.trial_data.length-1].too_high,
+			too_low: exp.trial_data[exp.trial_data.length-1].too_low,
+			button: this.buttonText
+        }));
+
+		// moves to the next view
+        $('#next').on('click', function(e) {
+            exp.findNextView();
+        }); 
+
+    },
+    trials: 1
+};
+
+var instructionspart2 = {
+    name: 'instructionspart2',
+    // instruction's title
+    "title": "Instructions",
+    //part 1 header//
+    "text1": "Part 2",
+    // instruction's text
+    "text": "Now we will ask you some general questions regarding the sugar factory task, please read each question carefully and take your time to answer in a thoughtful manner.",
+    // instuction's slide proceeding button text
+    "buttonText": "Continue to questions",
+    render: function() {
+
+        viewTemplate = $("#instructions-view").html();
+        $('#main').html(Mustache.render(viewTemplate, {
+            title: this.title,
+            text1: this.text1,
+            text: this.text,
+            button: this.buttonText
+        }));
+
+        // moves to the next view
+        $('#next').on('click', function(e) {
+            exp.findNextView();
+        }); 
+
+    },
+    trials: 1
+>>>>>>> 85af82b803b05eaee7c6ea3186aeca0f9eea6689
 };
 
 
 
 var questionaire = {
+<<<<<<< HEAD
   name: 'questionaire',
   "title": "Questionaire",
   "text": "Answer the following questions.",
@@ -326,11 +440,44 @@ var questionaire = {
 
   },
   trials: 1
+=======
+    name: 'questionaire',
+    "title": "Questionnaire",
+    "text": "Please answer the following questions.",
+    "buttonText": "Continue",
+    // render function renders the view
+    render : function() {
+
+        viewTemplate = $('#questionaire').html();
+        $('#main').html(Mustache.render(viewTemplate, {
+            title: this.title,
+            text: this.text,
+            buttonText: this.buttonText
+        }));
+
+        $('#next').on('click', function(e) {
+            // prevents the form from submitting
+            e.preventDefault();
+
+            // records the post test info
+            exp.global_data.languages = $('#languages').val();
+            exp.global_data.comments = $('#comments').val().trim();
+            exp.global_data.endTime = Date.now();
+            exp.global_data.timeSpent = (exp.global_data.endTime - exp.global_data.startTime) / 60000;
+
+            // moves to the next view
+            exp.findNextView();
+        })
+
+    },
+    trials: 1
+>>>>>>> 85af82b803b05eaee7c6ea3186aeca0f9eea6689
 };
 
 
 
 var postTest = {
+<<<<<<< HEAD
   name: 'postTest',
   "title": "Additional Info",
   "text": "Answering the following questions is optional, but will help us understand your answers.",
@@ -367,6 +514,41 @@ var postTest = {
 
   },
   trials: 1
+=======
+    name: 'postTest',
+    "title": "Additional Info",
+    "text": "Please answer the following questions. <br> Your data will be stored and password protected electronically, and no one will be able to identify you or your answers. Therefore please do not provide any identifying information such as student ID number, email address, etc. If you would like further information about this study please state this in the further comments section by providing an email address, however please note that your responses will no longer be anonymous.",
+    "buttonText": "End experiment",
+    // render function renders the view
+    render : function() {
+
+        viewTemplate = $('#post-test-view').html();
+        $('#main').html(Mustache.render(viewTemplate, {
+            title: this.title,
+            text: this.text,
+            buttonText: this.buttonText
+        }));
+
+        $('#next').on('click', function(e) {
+            // prevents the form from submitting
+            e.preventDefault();
+
+            // records the post test info
+            exp.global_data.age = $('#age').val();
+            exp.global_data.gender = $('#gender').val();
+            exp.global_data.education = $('#education').val();
+            exp.global_data.languages = $('#languages').val();
+            exp.global_data.comments = $('#comments').val().trim();
+            exp.global_data.endTime = Date.now();
+            exp.global_data.timeSpent = (exp.global_data.endTime - exp.global_data.startTime) / 60000;
+
+            // moves to the next view
+            exp.findNextView();
+        })
+
+    },
+    trials: 1
+>>>>>>> 85af82b803b05eaee7c6ea3186aeca0f9eea6689
 };
 
 
