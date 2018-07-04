@@ -163,6 +163,20 @@
 		</div>
 	</script>
 
+	<!-- Begin Second view -->
+	<script id="begin-exp-view2" type="x-tmpl-mustache">
+
+		<div class="view">
+			{{# title }}
+			<h1 class="title">{{ title }}</h1> {{/ title }} {{# text }}
+			<section class="text-container">
+				<p class="text">{{ text }}</p>
+			</section>
+			{{/ text }}
+			<button id="next">GO TO ROUND 2</button>
+		</div>
+	</script>
+
 	<!-- main view (buttons response) -->
 	<script id="main-view" type="x-tmpl-mustache">
 		<div class="view">
@@ -263,106 +277,151 @@
 			<form>
 				<br>
 				<p>
-					<label for="Firstmultiplechoice">Question 1: you have  a following starting state the initial output is 6000 tons and the initial work force is 600. Now you decrease the work force to 900. Please predict the resulting output from a given set of six alternatives. </label><br>
-					<div class="firstmult">
-						<br>
-						<label for="9000 tons">9000 tons
-						<input type="radio" name="Firstmultiplechoice" id="9000 tons" value="9000 tons">
-						<label for="1000 tons">1000 tons
-						<input type="radio" name="Firstmultiplechoice" id="1000 tons" value="1000 tons"></label>
-						<label for="between 3000 - 7000 tons ">between 3000 - 7000 tons
-						<input type="radio" name="Firstmultiplechoice" id="between 3000 - 7000 tons" value="between 3000 - 7000 tons"></label>
-						<label for="< 2000 tons">< 2000 tons
-						<input type="radio" name="Firstmultiplechoice" id="< 2000 tons" value="< 2000 tons"></label>
-						<label for="> 10000 tons">> 10000 tons
-						<input type="radio" name="Firstmultiplechoice" id="> 10000 tons" value="> 10000 tons"></label>
-						<label for="all options are equally likely">all options are equally likely
-						<input type="radio" name="Firstmultiplechoice" id="all options are equally likely" value="all options are equally likely"></label>
-					</div>
+
+
+							<label for="question1">Question 1: you have  a following starting state the initial output is 6000 tons and the initial work force is 600. Now you decrease the work force to 900. Please predict the resulting output from a given set of six alternatives. </label><br>
+							<div class="question1">
+							</p>
+
+				<br>
+				<p>
+				<label for="answer-container"></label>
+				<select id="question1" name="question1">
+					<option value="">please select option</option>
+					<option value="9000tons">9000 tons of sugar</option>
+					<option value="1000tons">1000 tons of sugar</option>
+					<option value="3000-7000tons">between 3000 and 7000 tons of sugar</option>
+					<option value="<2000tons">less than 2000 tons of sugar</option>
+					<option value=">10000tons">greater than 10000 tons of sugar</option>
+					<option value="allequalllikely">all options are equally likely</option>
+
+				</select>
 				</p>
+				</div>
+
+
+
 				<br><br><br>
 				<p>
-					<label for="secondmultiplechoice">Question 2: you have  a following starting state the initial output is 6000 tons and the initial work force is 600. Now you decrease the work force to 200. Please predict the resulting output from a given set of six alternatives. </label><br>
-					<div class="secondtmult">
+					<label for="question2">Question 2: you have  a following starting state the initial output is 6000 tons and the initial work force is 600. Now you decrease the work force to 200. Please predict the resulting output from a given set of six alternatives. </label><br>
+					<div class="question2">
+					</p>
 						<br>
-						<label for="9000 tons">9000 tons
-					<input type="radio" name="secondmultiplechoice" id="9000 tons" value="9000 tons">
-				</label>
-						<label for="1000 tons">1000 tons
-				<input type="radio" name="secondmultiplechoice" id="1000 tons" value="1000 tons"></label>
-						<label for="between 3000 - 7000 tons ">between 3000 - 7000 tons
-				<input type="radio" name="secondmultiplechoice" id="between 3000 - 7000 tons" value="between 3000 - 7000 tons"></label>
-						<label for="< 2000 tons">< 2000 tons
-				<input type="radio" name="secondmultiplechoice" id="< 2000 tons" value="< 2000 tons"></label>
-						<label for="> 10000 tons">> 10000 tons
-				<input type="radio" name="secondmultiplechoice" id="> 10000 tons" value="> 10000 tons"></label>
-						<label for="all options are equally likely">all options are equally likely
-				<input type="radio" name="secondmultiplechoice" id="all options are equally likely" value="all options are equally likely"></label>
-				</p>
+						<p>
+						<label for="answer-container"></label>
+						<select id="question2" name="question2">
+							<option value="">please select option</option>
+							<option value="9000tons">9000 tons of sugar</option>
+							<option value="1000tons">1000 tons of sugar</option>
+							<option value="3000-7000tons">between 3000 and 7000 tons of sugar</option>
+							<option value="<2000tons">less than 2000 tons of sugar</option>
+							<option value=">10000tons">greater than 10000 tons of sugar</option>
+							<option value="allequalllikely">all options are equally likely</option>
+
+						</select>
+						</p>
 				<br><br><br>
-				<p>
-					<label for="Question3">Question 3: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
-					<table style="width:100%">
+					<p>
+					<label for="question3">Question 3: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
+
+					</p>
 						<br><br>
+
+						<table style="width: 100%" class="table-centered">
 						<tr>
-							<td>Workforce: 800</td>
-							<td>Workforce: 500</td>
-							<td>Workforce: 1200</td>
-							<td>Workforce: 700</td>
+						<td></td>
+						<td>week1</td>
+						<td>week2</td>
+						<td>week3</td>
+						<td>week4</td>
 						</tr>
 						<tr>
-							<td>Sugaroutput: 11000</td>
-							<td>Sugaroutput: 6000</td>
-							<td>Sugaroutput: 7000</td>
-							<td><input type="text" placeholder="enter a value"></td>
+						<td>Workforce</td>
+							<td>800</td>
+							<td>500</td>
+							<td>1200</td>
+							<td>700</td>
+						</tr>
+						<tr>
+						<td>Sugar output</td>
+							<td>11000</td>
+							<td>6000</td>
+							<td>7000</td>
+							<td><input type="number" name="question3" id="question3" placeholder="enter a value"></td>
 						</tr>
 					</table>
-					<br><br>
 
-					<label for="Question3">Question 4: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
-					<table style="width:100%">
+					<br><br>
+					<p>
+					<label for="question4">Question 4: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
+
+					</p>
+					<p>
+					<table style="width:100%" class="table-centered">
 						<br>
 						<tr>
-							<td>Workforce: 800</td>
-							<td>Workforce: 500</td>
-							<td>Workforce: 1200</td>
-							<td>Workforce: 700</td>
+						<td></td>
+						<td>week1</td>
+						<td>week2</td>
+						<td>week3</td>
+						<td>week4</td>
 						</tr>
 						<tr>
-							<td>Sugaroutput: 11000</td>
-							<td>Sugaroutput: 6000</td>
-							<td>Sugaroutput: 7000</td>
-							<td><input type="text" placeholder="enter a value"></td>
+							<td>Workforce</td>
+							<td>800</td>
+							<td>500</td>
+							<td>1200</td>
+							<td>700</td>
+						</tr>
+						<tr>
+							<td>Sugar output</td>
+							<td>11000</td>
+							<td>6000</td>
+							<td>7000</td>
+							<td><input type="number" name="question4" id="question4" placeholder="enter a value"></td>
 						</tr>
 					</table>
+					</p>
 					<br><br>
+					<p>
+					<label for="question5">Question 5: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
+					</p>
 
-					<label for="Question3">Question 5: Given the following table of Workforce inputs and Sugar output decide for a input in week 4</label><br>
-					<table style="width:100%">
+
+						<table style="width:100%" class="table-centered">
 						<br>
 						<tr>
-							<td>Workforce: 800</td>
-							<td>Workforce: 500</td>
-							<td>Workforce: 1200</td>
-							<td>Workforce: 700</td>
+						<td></td>
+						<td>week1</td>
+						<td>week2</td>
+						<td>week3</td>
+						<td>week4</td>
 						</tr>
 						<tr>
-							<td>Sugaroutput: 11000</td>
-							<td>Sugaroutput: 6000</td>
-							<td>Sugaroutput: 7000</td>
-							<td><input type="text" placeholder="enter a value"></td>
+							<td>Workforce</td>
+							<td>800</td>
+							<td>500</td>
+							<td>1200</td>
+							<td>700</td>
+						</tr>
+						<tr>
+							<td>Sugar output</td>
+							<td>11000</td>
+							<td>6000</td>
+							<td>7000</td>
+							<td><input type="number" name="question5" id="question5" placeholder="enter a value"></td>
 						</tr>
 					</table>
 					<br><br>
 
-				</p>
+
 
 
 
 
 				<p class="comment-sect"> Question 6: Describe how did you go about attempting to reach & maintain your target values?
-					<label for="comments"></label>
-					<textarea name="comments" id="comments" rows="5" cols="80"></textarea>
+					<label for="question6"></label>
+					<textarea name="question6" id="question6" rows="5" cols="80"></textarea>
 				</p>
 				{{# buttonText }}
 				<button id="next">{{ buttonText }}</button> {{/ buttonText }} {{^ buttonText }}

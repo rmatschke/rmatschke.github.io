@@ -159,6 +159,28 @@ var beginMainExp = {
   trials: 1
 };
 
+var secondround = {
+  name: 'secondround',
+  "title": "Congratulations you finished the first round of the experiment!",
+  "text": "take a deep breath relax for a moment and when you are ready go to round 2!",
+  // render function renders the view
+  render: function() {
+
+    viewTemplate = $('#begin-exp-view2').html();
+    $('#main').html(Mustache.render(viewTemplate, {
+      title: this.title,
+      text: this.text
+    }));
+
+    // moves to the next view
+    $('#next').on('click', function(e) {
+      exp.findNextView();
+    });
+
+  },
+  trials: 1
+};
+
 var main = {
   name: 'main',
   // render function renders the view
@@ -311,11 +333,21 @@ var questionaire = {
       e.preventDefault();
       // records the post test info
       if (
-        $("input:radio[name='secondmultiplechoice']:checked").val() != undefined
+        ($("#question1").val() != "") &&
+        ($("#question2").val() != "") &&
+        ($("#question3").val() != "") &&
+        ($("#question4").val() != "") &&
+        ($("#question5").val() != "") &&
+        ($("#question6").val() != "")
 
       ){
-      exp.global_data.secondmult = $("input:radio[name='secondmultiplechoice']:checked").val();
-      exp.global_data.comments = $('#comments').val().trim();
+      exp.global_data.question1 = $("#question1").val();
+      exp.global_data.question2 = $("#question2").val();
+      exp.global_data.question3 = $("#question3").val();
+      exp.global_data.question4 = $("#question4").val();
+      exp.global_data.question5 = $("#question5").val();
+      exp.global_data.question6 = $("#question6").val();
+      //exp.global_data.comments = $('#comments').val().trim();
       exp.global_data.endTime = Date.now();
       exp.global_data.timeSpent = (exp.global_data.endTime - exp.global_data.startTime) / 60000;
 
