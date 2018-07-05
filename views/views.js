@@ -33,7 +33,7 @@ var instructions = {
   //part 1 header//
   "text1": "Part 1",
   // instruction's text
-  "text": "Imagine, you are the director of a new factory producing sugar. Your job as the director of this new sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
+  "text": "Imagine that you are the director of a new factory producing sugar. Your job as the director of this new sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
   // instuction's slide proceeding button text
   "buttonText": "Go to practice trial",
   render: function() {
@@ -88,7 +88,7 @@ var practice = {
       var workforce = $('input[name=answer]:checked').val();
       var sugar = exp.trial_data.length == 0 ?
         600 :
-        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar), 100]), 1200]) + randomValue();
+        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar) + randomValue(), 100]), 1200]);
       console.log(sugar)
       var success = sugar >= 800 & sugar <= 1000;
       var too_low = +(sugar < 800);
@@ -161,8 +161,8 @@ var beginMainExp = {
 
 var secondround = {
   name: 'secondround',
-  "title": "Congratulations you finished the first round of the experiment!",
-  "text": "take a deep breath relax for a moment and when you are ready go to round 2!",
+  "title": "You finished the first round of the experiment!",
+  "text": " After some discussion the sugarcompany decided to hire you for another season. As in the first season your job as the director of the sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
   // render function renders the view
   render: function() {
 
@@ -215,7 +215,7 @@ var main = {
       var workforce = $('input[name=answer]:checked').val();
       var sugar = exp.trial_data[exp.trial_data.length - 1].trial_type === "practice" ?
         600 :
-        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar), 100]), 1200]) + randomValue();
+        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar) + randomValue(), 100]), 1200]);
       console.log(sugar)
       var success = sugar >= 800 & sugar <= 1000;
       var too_low = +(sugar < 800);
@@ -315,8 +315,8 @@ var instructionspart2 = {
 
 var questionaire = {
   name: 'questionaire',
-  "title": "Questionaire",
-  "text": "Answer the following questions.",
+  "title": "Questionnaire",
+  "text": "Please answer the following questions.",
   "buttonText": "Continue",
   // render function renders the view
   render: function() {
