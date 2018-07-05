@@ -4,7 +4,7 @@ var intro = {
   // introduction title
   "title": "Welcome to the Sugar Factory Experiment!",
   // introduction text
-  "text": "Thank you for participating in our study! Make sure you are in a non distracting environment, please read the instructions carefully!",
+  "text": "Thank you for participating in our study! Make sure you are in a non-distracting environment, please read the instructions carefully!",
   // introduction's slide proceeding button text
   "buttonText": "Let the adventure begin",
   // render function renders the view
@@ -34,7 +34,7 @@ var instructions = {
   //part 1 header//
   "text1": "Part 1",
   // instruction's text
-  "text": "Imagine, you are the director of a new factory producing sugar. Your job as the director of this new sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
+  "text": "Imagine that you are the director of a new factory producing sugar. Your job as the director of this new sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
   // instuction's slide proceeding button text
   "buttonText": "Go to practice trial",
   render: function() {
@@ -145,7 +145,7 @@ var practice = {
       var workforce = $('input[name=answer]:checked').val();
       var sugar = exp.trial_data.length == 0 ?
         600 :
-        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar), 100]), 1200]) + randomValue();
+        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar) + randomValue(), 100]), 1200]);
       console.log(sugar)
       var success = sugar >= 800 & sugar <= 1000;
       var too_low = +(sugar < 800);
@@ -216,6 +216,28 @@ var beginMainExp = {
   trials: 1
 };
 
+var secondround = {
+  name: 'secondround',
+  "title": "You finished the first round of the experiment!",
+  "text": " After some discussion the sugar company decided to hire you for another season. As in the first season your job as the director of the sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
+  // render function renders the view
+  render: function() {
+
+    viewTemplate = $('#begin-exp-view2').html();
+    $('#main').html(Mustache.render(viewTemplate, {
+      title: this.title,
+      text: this.text
+    }));
+
+    // moves to the next view
+    $('#next').on('click', function(e) {
+      exp.findNextView();
+    });
+
+  },
+  trials: 1
+};
+
 var main = {
   name: 'main',
   // render function renders the view
@@ -250,7 +272,7 @@ var main = {
       var workforce = $('input[name=answer]:checked').val();
       var sugar = exp.trial_data[exp.trial_data.length - 1].trial_type === "practice" ?
         600 :
-        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar), 100]), 1200]) + randomValue();
+        _.min([_.max([(2 * workforce - exp.trial_data[exp.trial_data.length - 1].sugar) + randomValue(), 100]), 1200]);
       console.log(sugar)
       var success = sugar >= 800 & sugar <= 1000;
       var too_low = +(sugar < 800);
@@ -327,7 +349,7 @@ var instructionspart2 = {
   // instruction's text
   "text": "Now we will ask you some general questions about the sugar factory task, take your time and read carefully.",
   // instuction's slide proceeding button text
-  "buttonText": "Go to practice trial",
+  "buttonText": "Go to Questionnaire",
   render: function() {
 
     viewTemplate = $("#instructions-view").html();
@@ -407,8 +429,8 @@ var instructionspart2 = {
 var questionaire = {
 <<<<<<< HEAD
   name: 'questionaire',
-  "title": "Questionaire",
-  "text": "Answer the following questions.",
+  "title": "Questionnaire",
+  "text": "Please answer the following questions.",
   "buttonText": "Continue",
   // render function renders the view
   render: function() {
@@ -425,11 +447,21 @@ var questionaire = {
       e.preventDefault();
       // records the post test info
       if (
-        $("input:radio[name='secondmultiplechoice']:checked").val() != undefined
+        ($("#question1").val() != "") &&
+        ($("#question2").val() != "") &&
+        ($("#question3").val() != "") &&
+        ($("#question4").val() != "") &&
+        ($("#question5").val() != "") &&
+        ($("#question6").val() != "")
 
       ){
-      exp.global_data.secondmult = $("input:radio[name='secondmultiplechoice']:checked").val();
-      exp.global_data.comments = $('#comments').val().trim();
+      exp.global_data.question1 = $("#question1").val();
+      exp.global_data.question2 = $("#question2").val();
+      exp.global_data.question3 = $("#question3").val();
+      exp.global_data.question4 = $("#question4").val();
+      exp.global_data.question5 = $("#question5").val();
+      exp.global_data.question6 = $("#question6").val();
+      //exp.global_data.comments = $('#comments').val().trim();
       exp.global_data.endTime = Date.now();
       exp.global_data.timeSpent = (exp.global_data.endTime - exp.global_data.startTime) / 60000;
 
