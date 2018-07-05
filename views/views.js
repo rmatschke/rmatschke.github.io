@@ -3,7 +3,7 @@ var intro = {
   // introduction title
   "title": "Welcome to the Sugar Factory Experiment!",
   // introduction text
-  "text": "Thank you for participating in our study! Make sure you are in a non distracting environment, please read the instructions carefully!",
+  "text": "Thank you for participating in our study! Make sure you are in a non-distracting environment, please read the instructions carefully!",
   // introduction's slide proceeding button text
   "buttonText": "Let the adventure begin",
   // render function renders the view
@@ -162,7 +162,7 @@ var beginMainExp = {
 var secondround = {
   name: 'secondround',
   "title": "You finished the first round of the experiment!",
-  "text": " After some discussion the sugarcompany decided to hire you for another season. As in the first season your job as the director of the sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
+  "text": " After some discussion the sugar company decided to hire you for another season. As in the first season your job as the director of the sugar factory is to decide each week how many workers you want to send to your factory. Your goal is to reach a certain output level of sugar. After every week you are told whether you reached your goal, your sugar output was too low or your sugar output was too high. Good luck!",
   // render function renders the view
   render: function() {
 
@@ -291,7 +291,7 @@ var instructionspart2 = {
   // instruction's text
   "text": "Now we will ask you some general questions about the sugar factory task, take your time and read carefully.",
   // instuction's slide proceeding button text
-  "buttonText": "Go to practice trial",
+  "buttonText": "Go to Questionnaire",
   render: function() {
 
     viewTemplate = $("#instructions-view").html();
